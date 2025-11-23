@@ -1,48 +1,307 @@
-# TravelMaker
-여행 예약 플랫폼 TravelMaker
+아래는 **업로드한 TravelMaker.pdf 내용을 기반으로 구성한 README.md 초안**입니다.
+✔ 전체 내용을 **프로젝트 소개 → 기능 → 기술스택 → 데이터 수집 → 상세 기능 설명 → 팀원 역할 → 후기** 흐름에 맞춰 깔끔하게 문서화했습니다.
+✔ GitHub README 용으로 최적화된 구조입니다.
+✔ 필요하면 **이미지 삽입 위치 표시**, **목차 자동 생성**, **뱃지 디자인**, **다국어 지원 버전**까지 추가해줄 수 있습니다.
 
-<h1>Deployment Environment</h1>
-<img src="https://img.shields.io/badge/windows10-0078D6?style=for-the-badge&logo=windows10&logoColor=white">
-<img src="https://img.shields.io/badge/ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white">
-<img src="https://img.shields.io/badge/amazonaws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
-<img src="https://img.shields.io/badge/apachetomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
-<img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
+---
 
-<h1>Framework/Programming</h1>
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
-<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-<img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
-<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-<img src="https://img.shields.io/badge/apachemaven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white">
-<img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
-<img src="https://img.shields.io/badge/pycharm-000000?style=for-the-badge&logo=pycharm&logoColor=white">
-<img src="https://img.shields.io/badge/json-000000?style=for-the-badge&logo=json&logoColor=white">
-<img src="https://img.shields.io/badge/eclipseide-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white">
-Ajax, MyBatix, JSP
+# 📌 Travel Maker – 여행 기록 & 숙소 예약 통합 플랫폼
 
-<h1>Data Collection</h1>
-<img src="https://img.shields.io/badge/selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white">
-BeautifulSoup
+> **여행 계획부터 후기까지 한 번에 관리하는 올인원 여행 플랫폼**
 
-<h1>Data Analysis</h1>
-<img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white">
-<img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-<img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white">
-<img src="https://img.shields.io/badge/opencv-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white">
-Matplotlib
+Travel Maker는 여행 계획 작성부터 숙소 예약, 여행 후기 기록, 미니홈피 기반의 개인 기록 공간까지
+**여행의 모든 과정을 하나의 서비스에서 해결할 수 있도록 설계된 웹 서비스**입니다.
 
-<h1>Configuration Management</h1>
-<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+> 거리두기 해제 이후 증가한 여행 수요를 반영하여
+> 누구나 쉽고 즐겁게 여행 정보를 기록하고 공유할 수 있는 환경을 제공하는 것이 목표입니다.
 
-<h1>API</h1>
-<img src="https://img.shields.io/badge/kakao-FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
+---
 
-<h1>Schedule Management</h1>
-<img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
-<img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
+## 📚 Contents
 
-<h1>Design</h1>
-Visual Paradigm, DBeaver
+* [프로젝트 개요](#-프로젝트-개요)
+* [주요 기능](#-주요-기능)
+* [아키텍처 및 기술 스택](#-아키텍처-및-기술-스택)
+* [DB 테이블 설계](#-db-테이블-설계)
+* [핵심 기능 상세](#-핵심-기능-상세)
+* [데이터 수집](#-데이터-수집)
+* [Face Detection / Speech to Text / Chatbot](#-face-detection--speech-to-text--chatbot)
+* [팀원 역할](#-팀원-역할)
+* [프로젝트 회고](#-프로젝트-회고)
 
+---
+
+# 🌍 프로젝트 개요
+
+Travel Maker는 여행 네비게이터 역할을 수행하는 플랫폼으로 다음의 기능을 제공합니다.
+
+* 여행 계획 생성 & 일정 관리
+* 여행 다이어리/사진 기록
+* 미니홈피 기반의 개인 프로필 공간
+* 숙소 리스트·상세 조회 및 예약 기능
+* 실시간 리뷰, 별점, 검색 필터
+* 챗봇, 음성인식, 얼굴 감정 분석 기능
+
+---
+
+# ✨ 주요 기능
+
+## 1) 🧳 여행 기록 & 다이어리
+
+* 날짜별 여행 기록 추가
+* 일정/장소/사진 업로드
+* Kakao Map API 기반 주소 검색
+* 사진/썸네일 실시간 미리보기
+* Ajax 기반 댓글 CRUD & 페이징 처리
+* 여행 계획 캘린더(DateRangePicker) 적용
+
+---
+
+## 2) 🏠 미니홈피 시스템
+
+* 프로필 이미지, 인사말 수정 (AJAX)
+* 방문자 수 카운트 (쿠키 기반)
+* 배경 음악 재생 (sessionStorage)
+* 다이어리/사진첩 작성 및 삭제
+
+---
+
+## 3) 🏨 숙소 예약 기능
+
+* 지역/유형/날짜/가격/별점 필터
+* 호텔 썸네일·사진·객실·리뷰 연동
+* Dynamic Query 기반의 복합 검색
+* 호텔/객실 상세 페이지 구성
+
+---
+
+## 4) 👤 회원 시스템
+
+* 회원가입 Toggle UI
+* 아이디/이메일/닉네임 중복 체크 AJAX
+* AOP 기반 로그인/로그아웃 로깅
+* MyPage 정보 수정 (Trigger 기반 연동)
+
+---
+
+# 🏗 아키텍처 및 기술 스택
+
+## ✔ Backend
+
+* Java / Spring Boot
+* Spring MVC / MyBatis
+* Oracle DB
+* AOP (로그 기록)
+* REST API
+
+## ✔ Frontend
+
+* HTML / CSS / JavaScript / jQuery
+* Thymeleaf
+* Kakao Map API
+* DateRangePicker
+
+## ✔ Data
+
+* Selenium 기반 크롤링
+
+  * 트리플: 여행지 데이터
+  * 야놀자: 호텔 데이터
+
+## ✔ Machine Learning / AI
+
+* CNN 기반 Face Detection (감정 분석)
+* Speech-to-Text
+* Kakao Chatbot API
+
+---
+
+# 🗃 DB 테이블 설계
+
+(요약본)
+
+### ▪ 회원/로그인 관련
+
+* Member
+* LoginLog (AOP)
+
+### ▪ 여행 계획 & 기록
+
+* RecDiary
+* RecSchedule
+* RecPhoto
+* RecHashtag
+* Equipment/EquipmentDetail
+
+### ▪ 미니홈피
+
+* MiniHome
+* MiniDiary
+* MiniPhoto
+
+### ▪ 숙소 예약
+
+* Hotel
+* Room
+* HotelPhoto
+* Review
+
+> PDF에서 제공된 전체 테이블 다이어그램 기반으로 구성됨.
+
+---
+
+# 🔧 핵심 기능 상세
+
+여기엔 PDF의 기술 상세 설명을 요약해 넣었습니다.
+
+## ✔ 로그인/회원가입
+
+* Toggle UI로 폼 전환
+* AJAX 중복 체크
+* e.preventDefault() 사용
+* AOP 기반 로그인/로그아웃 기록 저장
+
+## ✔ 여행 다이어리 입력
+
+* 일차 추가 제한 (여행일자 초과 불가)
+* 시간/장소 일정 추가
+* Kakao 지도 검색 팝업 → 부모창 값 전달
+* FileReader 기반 이미지 미리보기
+* 여러 이미지 업로드 및 삭제 기능
+
+## ✔ 여행 다이어리 댓글
+
+* AJAX CRUD
+* RestController로 데이터 전송
+* 페이지네이션 적용
+
+## ✔ 여행 계획 관리
+
+* 행 추가/삭제(+/-)
+* 순서 이동 기능
+* Mapper에서 Insert All + sequence.nextVal
+* @Transactional로 전체 처리 보장
+
+## ✔ 숙소 검색 & 리스트
+
+* 조건부 검색을 위한 Dynamic Query 활용
+* 지역, 가격, 날짜, 별점 등 복합 조건 지원
+* 호텔·객실·리뷰·사진 테이블 결합
+* 최저가, 평균 평점 표시
+
+---
+
+# 📊 데이터 수집
+
+### ▪ 트리플(여행지 정보)
+
+* 여행지 리스트 → 상세 URL 추출
+* 각 페이지에서 여행지 정보 스크래핑
+
+### ▪ 야놀자(호텔 정보)
+
+* 호텔 TOP 50 리스트 → 상세정보 추출
+* 호텔명, 별점, 인사말, 기본정보 수집
+
+### 사용 모듈
+
+```
+selenium
+webdriver
+tqdm
+urlretrieve
+os, time
+```
+
+수집한 CSV는 SQLDeveloper를 이용해 DB에 Import하여 사용.
+
+---
+
+# 🤖 Face Detection / Speech to Text / Chatbot
+
+## ✔ Face Detection
+
+* CNN 기반 감정 분류 모델
+* softmax 다중 분류
+* 이미지 정규화 후 학습
+* 예측 결과 화면 표시
+
+## ✔ Speech to Text
+
+* 음성 업로드 후 텍스트 변환
+* Django Views.py 기반
+
+## ✔ Kakao Chatbot API
+
+* 여행 추천/호텔 추천 기본 챗봇 구성
+
+---
+
+# 👥 팀원 역할
+
+### **팀장 김지은**
+
+* 프로젝트 총괄, 일정 관리
+* 여행 기록/계획 UI & 기능
+* DB 설계 & 구현
+* FaceDetection, Kakao Map API
+
+### **김우혁**
+
+* 미니홈피 다이어리/사진첩
+* 여행 일정 캘린더
+* 게시판/로그인 공통 기능
+
+### **김유리나**
+
+* 호텔 예약 기능 핵심
+* Transformer 기반 NLP
+* 카카오 챗봇
+* 데이터 설계
+
+### **성대경**
+
+* 마이페이지 & 회원수정
+* 미니홈피 UI/DB
+* 여행 커뮤니티 게시판
+
+### **신민**
+
+* 숙소 예약 및 검색
+* Ajax 댓글 기능
+* Speech To Text
+
+### **윤정재**
+
+* 전체 UI 디자인
+* 호텔 상세/리뷰 페이지
+* CSS & jQuery
+
+### **이준희**
+
+* 미니홈피, BGM, 방문자수
+* DB 설계 및 다이어리 기능
+
+---
+
+# 📝 프로젝트 회고
+
+PDF에 적힌 팀원 후기 내용을 압축 정리했습니다.
+
+* 협업과 소통의 중요성 체감
+* 프로젝트 설계 초기의 중요성 학습
+* 오류 해결 과정에서 개발 역량 성장
+* 새 기술을 적용하며 자신감 향상
+* 짧은 기간 동안 팀워크를 통해 성장
+* 기술적 도전 및 성취감 경험
+* 함께 이겨낸 시간들이 큰 힘이 됨
+
+---
+
+# 🙏 감사합니다
+
+프로젝트를 함께한 모든 팀원들의 노력으로 완성된 여행 플랫폼 Travel Maker.
+앞으로도 기술적 성장과 협업을 통해 더 나은 서비스를 만들고자 합니다.
+
+
+원하시는 스타일이 있으면 말씀해주세요!
