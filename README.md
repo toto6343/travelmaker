@@ -111,7 +111,9 @@ Travel Maker는 여행 네비게이터 역할을 수행하는 플랫폼으로 �
 
 # 🗃 DB 테이블 설계
 
-(요약본)
+<img width="764" height="587" alt="Image" src="https://github.com/user-attachments/assets/9f83688a-230c-4300-88c9-d42b60707f8a" />
+<img width="1066" height="656" alt="Image" src="https://github.com/user-attachments/assets/a31a88df-4d56-4310-b08d-6e04ce9a5c2d" />
+<img width="1812" height="968" alt="Image" src="https://github.com/user-attachments/assets/0d94bdca-37ba-43c6-8417-f3756a3c859f" />
 
 ### ▪ 회원/로그인 관련
 
@@ -139,13 +141,9 @@ Travel Maker는 여행 네비게이터 역할을 수행하는 플랫폼으로 �
 * HotelPhoto
 * Review
 
-> PDF에서 제공된 전체 테이블 다이어그램 기반으로 구성됨.
-
 ---
 
 # 🔧 핵심 기능 상세
-
-여기엔 PDF의 기술 상세 설명을 요약해 넣었습니다.
 
 ## ✔ 로그인/회원가입
 
@@ -288,6 +286,12 @@ PDF에 적힌 팀원 후기 내용을 압축 정리했습니다.
 * 짧은 기간 동안 팀워크를 통해 성장
 * 기술적 도전 및 성취감 경험
 * 함께 이겨낸 시간들이 큰 힘이 됨
+
+---
+
+# 📸 Screenshots
+
+<img width="1116" height="539" alt="Image" src="https://github.com/user-attachments/assets/86163555-ada6-4af5-bda5-df608f4f8ff1" />
 
 ---
 
